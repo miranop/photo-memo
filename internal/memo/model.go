@@ -14,3 +14,7 @@ type PostMemo struct {
 	Title string
 	Body  string
 }
+type PatchMemo struct {
+	Title *string
+	Body  *string
+}
