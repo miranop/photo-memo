@@ -18,5 +18,8 @@ func main() {
 	mux.Handle("PATCH /memos/{id}", memo.PatchHandler(database))
 	mux.Handle("DELETE /memos/{id}", memo.DeleteHandler(database))
 	mux.Handle("POST /memos/{id}/photos", photo.CreateHandler(database))
+	mux.Handle("GET /memos/{id}/photos", photo.FindByMemoHandler(database))
+	mux.Handle("GET /photos/{id}", photo.ServeHandler(database))
+	mux.Handle("DELETE /photos/{id}", photo.DeleteHandler(database))
 	http.ListenAndServe(":8080", mux)
 }
